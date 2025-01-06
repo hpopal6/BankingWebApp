@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converted Transactions</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Converted Transactions List</h1>
+            <form method="POST" action="/converted-transactions">
+                User: <select name="userId" class="form-select my-2 w-25 mx-auto">
+                    <% for (user of users) { %>
+                        <option value="<%=user.userId%>">
+                            <%=user.firstName%> <%=user.lastName%>
+                        </option>
+                    <% } %>
+                </select><br>
+                <!--User ID: <input type="text" name="userId" required><br-->
+                <button type="submit" class="btn btn-success btn-sm">View Converted Transactions</button>
+            </form>
+            <% if (message) { %>
+                <p><%= message %></p>
+            <% } %>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

@@ -1,0 +1,53 @@
+<%- include('partials/header.ejs') %>
+  <body>
+    <%- include('partials/nav.ejs') %>
+    <main id="mainHome">    
+      <h1>Banking App - Admin Section</h1>
+      <br>
+      <div>
+        <form action="/user/new" style="display: inline">
+          <button class="bi bi-person-fill-add" style="width: 200px; height: 100px;"> Add User </button>
+        </form> 
+
+        <form action="/users" style="display: inline">
+          <button class="bi bi-people" style="width: 200px; height: 100px;"> List Users </button>
+        </form>
+      </div>
+      <br>
+      <div>
+        <form action="/transaction/new" style="display: inline">
+          <button class="bi bi-database-fill-add" style="width: 200px; height: 100px;"> Add Transaction </button>
+        </form>
+
+        <form action="/transactions" style="display: inline">
+          <button class="bi bi-list-ul" style="width: 200px; height: 100px;"> List Transactions </button>
+        </form>
+
+        <form action="/converted-transactions" style="display: inline">
+            <button class="bi bi-currency-exchange" style="width: 250px; height: 100px;"> Converted Transactions </button>
+        </form>
+      </div>
+      <br>
+      <form action="/financial-news">
+          <button class="bi bi-newspaper" style="width: 200px; height: 100px;"> Financial News </button>
+      </form><br>
+      <form action="/set-preference">
+          <button class="bi bi-cash-coin" style="width: 200px; height: 100px;"> Set Currency Preference </button>
+      </form><br>
+      <br>
+      <form action="/logout">
+        <button class="bi bi-box-arrow-left" style="width: 200px; height: 100px;"> Logout </button>
+      </form>
+    </main>
+    <%- include('partials/footer.ejs') %>
+    <!-- <script src="/js/scripts.js"></script> -->
+      <!-- SLS09 start -->
+      <script>
+        var preferredCurrency = localStorage.getItem('preferredCurrency');
+         if (preferredCurrency === null ){
+           localStorage.setItem('preferredCurrency', 'USD');
+         }
+      </script>
+      <!--SLS09 end -->
+  </body>
+</html>

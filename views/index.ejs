@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %>
+  <body>
+    <!-- if admin, present admin nav, otherwise present user nav  -->
+    <%- include('partials/nav0.ejs') %>
+    <main id="mainIndex">  
+      <br><h1>Banking App</h1>
+      <form method="POST">
+        Username: <input type="text" name="username" class="form-control w-50 mx-auto">
+        <br>
+        Password: <input type="password" name="password" class="form-control w-50 mx-auto">
+        <br>
+        <button class="btn btn-success">Login!</button>
+      </form>
+      <% if (typeof loginError != "undefined" && loginError) { %>
+        <h3 class="error">Wrong credentials!</h3>
+      <% } %>
+    </main>
+    <br>
+    <%- include('partials/footer.ejs') %>
+    <!-- <script src="/js/scripts.js"></script> -->
+  </body>
+</html>

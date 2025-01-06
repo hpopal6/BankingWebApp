@@ -1,0 +1,29 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Financial News</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainFinancialNews">    
+            <h1>Latest Financial News</h1>
+            <% articles.forEach(article => { %>
+                <div class="news-article card my-3 w-75 mx-auto">
+                    <div class="card-body">
+                        <h3><%= article.title %></h3>
+                        <p><%= article.description %></p>
+                        <a href="<%= article.url %>" target="_blank">Read more</a>
+                    </div>
+                </div>
+                <hr>
+            <% }) %>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

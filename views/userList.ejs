@@ -1,0 +1,30 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Users</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">     
+            <h1>Users List</h1>
+            <% for (let i = 0; i < users.length; i++) { %>
+                <div class="card my-3 w-25 mx-auto">
+                    <div class="card-body">
+                            <b>User ID:</b> <%= users[i].userId %> <br>
+                            <b>Name:</b> <%= users[i].firstName %> <%= users[i].lastName %> <br>
+                            <b>Email:</b> <%= users[i].email %> <br>
+                            <a class="aUpdate" href="/user/edit?userId=<%= users[i].userId %>">UPDATE</a>
+                            <a class="aDelete" href="/user/delete?userId=<%= users[i].userId %>">DELETE</a>
+                    </div>
+                </div>
+            <% } %>
+    </main>
+    <br>
+    <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

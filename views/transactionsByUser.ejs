@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions by User</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">   
+            <h1>View Transactions by User</h1>
+            <% if (typeof message != "undefined") { %>
+                <h3><%= message %></h3>
+            <% } %>
+            <form method="POST" action="/transactions">
+                User: <select name="userId" class="form-select my-2 w-25 mx-auto">
+                    <% for (user of users) { %>
+                        <option value="<%=user.userId%>">
+                            <%=user.firstName%> <%=user.lastName%>
+                        </option>
+                    <% } %>
+                </select>
+                <br>             
+                <!--User ID: <input type="text" name="userId"><br-->
+                <button class="btn btn-success btn-sm">View Transactions</button>
+            </form>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

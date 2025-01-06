@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Convert Transaction</h1>
+            <form method="POST" action="/transaction/convert">
+                <input type="hidden" name="transactionId" value="<%= transactionId %>">
+                Target Currency:
+                <select name="targetCurrency" id="targetCurrency" class="form-select my-2 w-25 mx-auto">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR">INR</option>
+                </select>
+                <button type="submit" class="btn btn-success">Convert</button>
+            </form>
+            <% if (convertedAmount) { %>
+                <p>The converted amount is <%= convertedAmount %> <%= currencySymbol %>.</p>
+            <% } %>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const savedCurrency = localStorage.getItem('preferredCurrency');
+                if (savedCurrency) {
+                    document.getElementById('targetCurrency').value = savedCurrency;
+                }
+            });
+        </script>
+    </body>
+</html>

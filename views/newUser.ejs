@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Adding a New User</h1>
+            <% if (typeof message != "undefined") { %>
+            <h3><%=message%></h3>
+            <% } %>
+            <form method="POST" action="/user/new" id="newUserForm">
+                First Name: <input type="text" name="firstName" id="firstName" class="form-control w-25 mx-auto">
+                <span id="firstNameError"></span> <br>
+                Last Name: <input type="text" name="lastName" id="lastName" class="form-control w-25 mx-auto">
+                <span id="lastNameError"></span> <br>
+                Email: <input type="email" name="email" id="email" class="form-control w-25 mx-auto">
+                <span id="emailError"></span> <br>
+                Password: <input type="password" name="password" id="password" class="form-control w-25 mx-auto">
+                <span id="passwordError"></span> <br>
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+        <script src="/js/newUserScript.js"></script>
+    </body>
+</html>
+

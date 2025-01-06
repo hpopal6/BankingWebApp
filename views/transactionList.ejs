@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction List</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Transaction List</h1>
+            <% if (message) { %>
+                <p><%= message %></p>
+            <% } else { %>
+                <% for (let i = 0; i < transactions.length; i++) { %>
+                    <div class="card my-3 w-50 mx-auto">
+                        <div class="card-body">
+                            <b>Date:</b> <%= transactions[i].date %> <br>
+                            <b>Description:</b> <%= transactions[i].description %> <br>
+                            <b>Type:</b> <%= transactions[i].type %> <br>
+                            <b>Category:</b> <%= transactions[i].category %> <br>
+                            <b>Amount:</b> <%= transactions[i].amount %> <br>
+                            <b>Preferred Currency:</b> <%= transactions[i].preferredCurrency %> <br>
+                            <a class="aUpdate" href="/transaction/edit?transactionId=<%= transactions[i].transactionId %>">UPDATE</a>
+                            <a class="aDelete" href="/transaction/delete?transactionId=<%= transactions[i].transactionId %>">DELETE</a>
+                            <a class="aConvert" href="/transaction/convert?transactionId=<%= transactions[i].transactionId %>">CONVERT</a>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

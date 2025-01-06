@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Transaction</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Add New Transaction</h1>
+            <form method="POST" action="/transaction/new" id="newTransactionForm">
+                <!--Harris-->
+                User: 
+                <select name="userId" class="form-select my-2 w-25 mx-auto">
+                    <% for (user of users) { %>
+                        <option value="<%=user.userId%>">
+                            <%=user.firstName%> <%=user.lastName%>
+                        </option>
+                    <% } %>
+                </select><br>
+                <!--input type="text" name="userId" id="userId"><br-->
+                Amount: <input type="text" name="amount" id="amount" class="form-control my-2 w-25 mx-auto">
+                        <span id="amountError"></span><br>
+                <!--Harris-->
+                Type: <span id="typeError"></span><br>
+                  <div class="form-check my-2 w-25 mx-auto">
+                      <label for="income" class="form-check-label mx-5">
+                          <input type="radio" name="type" id="type" value="income" class="form-check-input ml-3">
+                            Income 
+                      </label> <br>
+                      <label for="expense" class="form-check-label mx-3">
+                          <input type="radio" name="type" id="type" value="expense" class="form-check-input ml-3">
+                            Expense 
+                      </label><br>
+                  </div>
+                <!--select name="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select><br>
+                
+                <!--Harris-->
+                Category:
+                <select name="category" class="form-select my-2 w-25 mx-auto">
+                    <% for (category of categories) { %>
+                        <option value="<%=category.category%>">
+                            <%=category.category%>
+                        </option>
+                    <% } %>
+                    </select><br>
+                <!--input type="text" name="category"><br-->
+                Date: <input type="date" name="date" id="date" class="form-control my-2 w-25 mx-auto">
+                        <span id="dateError"></span><br>
+                Description: <textarea name="description" id="description" class="form-control my-2 w-25 mx-auto"></textarea>
+                        <span id="descriptionError"></span><br>
+                <input type="hidden" name="preferredCurrency" id="preferredCurrency" >
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+            <% if (typeof message != "undefined") { %>
+                <h3><%= message %></h3>
+            <% } %>
+        </main>    
+        <br>
+        <%- include('partials/footer.ejs') %>
+        <script src="/js/newTransactionScript.js"></script>
+    </body>
+</html>

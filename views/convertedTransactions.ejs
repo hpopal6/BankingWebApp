@@ -1,0 +1,36 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converted Transactions</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">  
+            <h1>Converted Transactions List</h1>
+            <% if (message) { %>
+                <p><%= message %></p>
+            <% } else { %>
+                <% for (let i = 0; i < convertedTransactions.length; i++) { %>
+                    <div class="card my-3 w-50 mx-auto">
+                        <div class="card-body">
+                            <b>Transaction Date:</b> <%= convertedTransactions[i].date.toLocaleDateString() %> <br>
+                            <b>Conversion Date:</b> <%= convertedTransactions[i].conversionDate.toLocaleDateString() %> <br>
+                            <b>Description:</b> <%= convertedTransactions[i].description %> <br>
+                            <b>Type:</b> <%= convertedTransactions[i].type %> <br>
+                            <b>Category:</b> <%= convertedTransactions[i].category %> <br>
+                            <b>Original Amount:</b> <%= convertedTransactions[i].originalAmount %> <%= convertedTransactions[i].preferredCurrency %> <br>
+                            <b>Converted Amount:</b> <%= convertedTransactions[i].convertedAmount %> <%= convertedTransactions[i].targetCurrency %> <br>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+    </body>
+</html>
+<!-- </body>
+</html> -->

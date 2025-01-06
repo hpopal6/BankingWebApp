@@ -1,0 +1,45 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Preference</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Set Currency Preference</h1>
+            <form id="preferenceForm">
+                Preferred Currency:
+                <select name="currency" id="currency" class="form-select my-2 w-25 mx-auto">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="INR">INR</option>
+                </select>
+                <button type="submit" class="btn btn-success">Save Preference</button>
+            </form>
+            <br>
+            <p id="preferenceMessage"></p>
+        </main>
+        <%- include('partials/footer.ejs') %>
+        <script>
+            document.getElementById('preferenceForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const selectedCurrency = document.getElementById('currency').value;
+                localStorage.setItem('preferredCurrency', selectedCurrency);
+                document.getElementById('preferenceMessage').innerText = `Your preferred currency is ${selectedCurrency}`;
+            });
+        
+            // Load the saved preference
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const savedCurrency = localStorage.getItem('preferredCurrency');
+                if (savedCurrency) {
+                    document.getElementById('currency').value = savedCurrency;
+                    document.getElementById('preferenceMessage').innerText = `Your preferred currency is ${savedCurrency}`;
+                }
+            });
+        </script>
+    </body>
+</html>

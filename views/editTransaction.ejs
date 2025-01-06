@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Transaction</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">  
+            <h1>Editing Transaction</h1>
+            <form method="POST" action="/transaction/edit" id="editTransactionForm">
+                <input type="hidden" name="transactionId" value="<%= transaction.transactionId %>">
+                User:
+                <!-- SLS10 -->
+                <select name="userId" class="form-select my-2 w-25 mx-auto">
+                    <% for (user of users) { %>
+                        <option value="<%=user.userId%>"
+                            <% if (user.userId == transaction.userId) { %> 
+                              selected
+                            <% } %>>
+                            <%=user.firstName%> <%=user.lastName%>
+                        </option>
+                    <% } %>
+                </select><br>
+                <!--input type="text" name="userId" value="<%= transaction.userId %>"><br-->
+                Amount: <input type="text" name="amount" id="amount" value="<%= transaction.amount %>" class="form-control my-2 w-25 mx-auto">
+                        <span id="amountError"></span><br>
+                <!--Harris-->
+                Type: <span id="typeError"></span><br>
+                <div class="form-check my-2 w-25 mx-auto">
+                    <label for="income" class="form-check-label">
+                        <input type="radio" name="type" id="type" value="income" class="form-check-input ml-3" 
+                        <% if (transaction.type === 'income') { %>
+                            checked 
+                        <% } %>>
+                            Income 
+                    </label> <br>
+                    <label for="expense" class="form-check-label">
+                        <input type="radio" name="type" id="type" value="expense" class="form-check-input ml-3"
+                        <% if (transaction.type === 'expense') { %>
+                            checked 
+                        <% } %>>
+                            Expense 
+                    </label><br>
+                </div>
+                <!--Type:
+                <select name="type">
+                    <option value="income" <% if (transaction.type === 'income') { %>selected<% } %>>Income</option>
+                    <option value="expense" <% if (transaction.type === 'expense') { %>selected<% } %>>Expense</option>
+                </select><br>
+                <!--Harris-->
+                Category:
+                <select name="category" class="form-select my-2 w-25 mx-auto">
+                    <% for (category of categories) { %>
+                        <option value="<%=category.category%>"
+                            <% if (category.category == transaction.category) { %>
+                              selected
+                            <% } %>>
+                            <%=category.category%>
+                        </option>
+                    <% } %>
+                </select><br>
+                <!--input type="text" name="category" value="<%= transaction.category %>"><br-->
+                Date: <input type="date" name="date" id="date" value="<%= transaction.date %>" class="form-control my-2 w-25 mx-auto">
+                        <span id="dateError"></span><br>
+                Description: <textarea name="description" id="description" class="form-control my-2 w-25 mx-auto"><%= transaction.description %></textarea>
+                        <span id="descriptionError"></span><br>
+                <input type="submit" value="Update" class="btn btn-success">
+            </form>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+        <script src="/js/editTransactionScript.js"></script>
+    </body>
+</html>
+<!-- </body>
+</html> -->

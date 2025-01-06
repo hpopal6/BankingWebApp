@@ -1,0 +1,36 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body> -->
+<%- include('partials/header.ejs') %>
+    <body>
+        <%- include('partials/nav.ejs') %>
+        <main id="mainHome">    
+            <h1>Editing User Information</h1>
+            <form method="POST" action="/user/edit" id="editUserForm">
+                <input type="hidden" name="userId" id="userId" value="<%= user.userId %>" class="form-control w-25 mx-auto">
+                <label>First Name:</label>
+                <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" class="form-control w-25 mx-auto" required>
+                <span id="firstNameError"></span><br>
+                <label>Last Name:</label>
+                <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" class="form-control w-25 mx-auto" required>
+                <span id="lastNameError"></span><br>
+                <label>Email:</label>
+                <input type="email" name="email" id="email" value="<%= user.email %>" class="form-control w-25 mx-auto" required>
+                <span id="emailError"></span><br>
+                <label>Password:</label>
+                <input type="password" name="password" id="password" value="" class="form-control w-25 mx-auto">
+                <span id="passwordError"></span><br>
+                <button type="submit" class="btn btn-success">Update User</button>
+            </form>
+        </main>
+        <br>
+        <%- include('partials/footer.ejs') %>
+        <script src="/js/editUserScript.js"></script>
+    </body>
+</html>
+<!-- </body>
+</html> -->
