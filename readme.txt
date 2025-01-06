@@ -1,7 +1,9 @@
 Harris Popal
 
------
-current usernames/passwords:
+Banking Web App:
+Brokerage application that manages customers and their financial transactions. Implemented using Node.js, Express.js, Javascript, HTML, and CSS. Utilizes local APIs to interact with a MySQL database for CRUD operations on users, transactions, and converted transactions and external APIs (exchangerate-api.com and newsapi.org) to retrieve exchange rates and financial news.
+
+Current Usernames/Passwords:
 
 Test account:
 username: admin@email.com
@@ -22,7 +24,9 @@ password: homers, $2a$10$XYHOqrkZFaLXX3B0x4e7xuOz8VQbLYIxjeNZdZ9M0Sbtw6vsEvFRi
 userId : 
 username: marge@simpsons.com
 password: marges,
------
+
+
+---------------------------------------------------------
 
 // const mysql = require('mysql');
 
