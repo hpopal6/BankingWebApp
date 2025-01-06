@@ -1,5 +1,4 @@
-CST336-40_SU24
-Final Project : Team 7
+Harris Popal
 
 -----
 current usernames/passwords:
